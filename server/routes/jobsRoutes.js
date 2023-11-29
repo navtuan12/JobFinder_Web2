@@ -7,9 +7,13 @@ import {
   getJobPosts,
   updateJob,
 } from "../controllers/jobController.js";
+import { applyJob } from "../controllers/resumeController.js";
+
 
 const router = express.Router();
 
+//APPLY JOB
+router.post("/apply-job", applyJob)
 // POST JOB
 router.post("/upload-job", userAuth, createJob);
 

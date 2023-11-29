@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import Users from "../models/userModel.js";
 import Verification from "../models/emailVerification.js";
 import { compareString } from "../utils/index.js";
+import Jobs from "../models/jobsModel.js"
 
 export const updateUser = async (req, res, next) => {
   const {

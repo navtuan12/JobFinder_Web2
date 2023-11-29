@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useForm } from "react-hook-form";
@@ -6,7 +7,6 @@ import { HiLocationMarker } from "react-icons/hi";
 import { AiOutlineMail } from "react-icons/ai";
 import { FiPhoneCall, FiEdit3, FiUpload } from "react-icons/fi";
 import { Link, useParams } from "react-router-dom";
-import { companies, jobs } from "../utils/data";
 import { CustomButton, JobCard, Loading, TextInput } from "../components";
 import { apiRequest, handleFileUpload } from "../utils";
 import { Login } from "../redux/userSlice";

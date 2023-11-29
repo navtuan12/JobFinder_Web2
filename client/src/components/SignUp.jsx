@@ -55,12 +55,12 @@ const SignUp = ({ open, setOpen }) => {
 
       if (res?.status === "falied") {
         setErrMsg(res?.message);
-      } else {
-        if (register) {
-          setErrMsg(res?.message);
-          setInterval(() => {
-            window.location.replace("/");
-          }, 5000);
+      // } else {
+      //   if (register) {
+      //     setErrMsg(res?.message);
+      //     setInterval(() => {
+      //       window.location.replace("/");
+      //     }, 5000);
         } else {
           setErrMsg("");
           const newData = { token: res?.token, ...res?.user };
@@ -68,8 +68,7 @@ const SignUp = ({ open, setOpen }) => {
           localStorage.setItem("userInfo", JSON.stringify(newData));
           window.location.replace(from);
         }
-      }
-      setIsLoading(false);
+        setIsLoading(false);
     } catch (error) {
       console.log(error);
       setIsLoading(false);
