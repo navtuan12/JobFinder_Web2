@@ -13,10 +13,6 @@ export const applyJob = async (res, req, next) => {
             next("Please Provide All Required Fields");
             return;
         }
-        const id = req.body.user.userId;
-
-        if (!mongoose.Types.ObjectId.isValid(id))
-            return res.status(404).send(`No user with id: ${id}`);
 
         const resumePost = {
             name,
@@ -24,7 +20,7 @@ export const applyJob = async (res, req, next) => {
             email,
             profileUrl,
             about,
-            _id: id,
+            user: id,
         };
         const resume = new Resumes(resumePost)
         await resume.save()
@@ -38,7 +34,7 @@ export const applyJob = async (res, req, next) => {
         
         res.status(200).json({
             success: true,
-            message: "Apply Job SUccessfully",
+            message: "Apply Job Successfully",
             resume,
         });
     } catch (error) {
