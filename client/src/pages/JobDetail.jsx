@@ -102,9 +102,6 @@ const JobDetail = () => {
           setErrMsg({ ...res });
         } else {
           setErrMsg({ status: "success", message: res.message });
-          const newData = { token: res?.token, ...res?.user };
-          dispatch(Login(newData));
-          localStorage.setItem("userInfo", JSON.stringify(data));
           setTimeout(() => {
             window.location.reload();
           }, 1500);

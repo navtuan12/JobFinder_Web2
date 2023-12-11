@@ -6,14 +6,14 @@ import Resumes from "../models/resumeModel.js";
 
 export const applyJob = async (res, req, next) => {
     const { name, contact, email, about, profileUrl } = req.body;
-
+    console.log(req.body);
     try {
         // validation
         if (!name || !email || !about || !contact || !profileUrl ) {
             next("Please Provide All Required Fields");
             return;
         }
-
+        
         const resumePost = {
             name,
             contact,
@@ -21,7 +21,8 @@ export const applyJob = async (res, req, next) => {
             profileUrl,
             about,
             user: id,
-        };
+        }
+
         const resume = new Resumes(resumePost)
         await resume.save()
 
@@ -39,6 +40,6 @@ export const applyJob = async (res, req, next) => {
         });
     } catch (error) {
         console.log(error);
-        res.status(404).json({ message: error.message });
+        res.status(404).json({ message: "chet me may di" });
     }
 }

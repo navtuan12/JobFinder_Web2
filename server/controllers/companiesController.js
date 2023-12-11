@@ -106,13 +106,13 @@ export const signIn = async (req, res, next) => {
 
 export const updateCompanyProfile = async (req, res, next) => {
   const { name, contact, location, profileUrl, about } = req.body;
-
+  console.log(req.body);
   try {
     // validation
-    if (!name || !location || !about || !contact || !profileUrl) {
-      next("Please Provide All Required Fields");
-      return;
-    }
+    // if (!name || !location || !about || !contact) {
+    //   next("Please Provide All Required Fields");
+    //   return;
+    // }
 
     const id = req.body.user.userId;
 
@@ -138,7 +138,7 @@ export const updateCompanyProfile = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      message: "Company Profile Updated SUccessfully",
+      message: "Company Profile Updated Successfully",
       company,
       token,
     });
